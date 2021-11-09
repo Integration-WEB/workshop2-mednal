@@ -1,0 +1,58 @@
+$twin:"html","css3","spring","Angular";
+.text{
+
+  color: red;
+  font-size: 20px;
+}
+
+textarea {
+  @extend .text
+}
+
+
+h1 {
+  @extend .text
+}
+
+
+.btn {
+
+  border:3px;color:yellow ;
+}
+
+@mixin border($border){
+  border: $border;
+}
+.btn {
+  @include border(3px solid yellow);
+}
+
+@function background($color){
+  @if($color==white){
+    @return  black;
+  }
+  @else {
+    @return white;
+  }
+}
+
+.btns{
+  color:background(white) ;
+}
+
+
+@function first($liste)
+{
+  @return nth($liste,1);
+}
+@function last($liste)
+{
+  @return nth($liste,length($liste));
+}
+
+.test1 {
+  content:first($twin);
+}
+.test2 {
+  content:last($twin);
+}
